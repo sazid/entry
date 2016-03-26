@@ -5,7 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class EntryDbHelper extends SQLiteOpenHelper {
-    public static final String DATABASE_NAME = "humming_sky.db";
+    public static final String DATABASE_NAME = "entry.db";
     private static final int DATABASE_VERSION = 1;
 
     public EntryDbHelper(Context context) {
@@ -31,4 +31,3 @@ public class EntryDbHelper extends SQLiteOpenHelper {
         DbContract.EntryTable.onUpgrade(db, oldVersion, newVersion);
     }
 }
-

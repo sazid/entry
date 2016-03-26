@@ -1,8 +1,16 @@
 package com.mohammedsazid.android.entry;
 
+import android.content.ContentResolver;
+import android.content.ContentValues;
+import android.content.Context;
+import android.net.Uri;
+
+import com.mohammedsazid.android.entry.data.DbContract;
+
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 
+@SuppressWarnings("unused")
 public class Entry {
     public static final SimpleDateFormat entryDateSdf =
             new SimpleDateFormat("d/M/yyyy", Locale.getDefault());
@@ -14,6 +22,7 @@ public class Entry {
     private long mEntryTime;
 
     public Entry(String entryText, long entryTime) {
+        this.mId = -1;
         this.mEntryText = entryText;
         this.mEntryTime = entryTime;
     }
@@ -63,18 +72,35 @@ public class Entry {
     /**
      * Saves the item into the db
      *
+     * @return Uri for the saved data
      * @throws Exception
      */
-    public void save() throws Exception {
+    public Uri save(ContentResolver cr) {
+        ContentValues values = new ContentValues();
+        values.put(DbContract.EntryTable.COL_TXT_ENTRY_TEXT, getEntryText());
+        values.put(DbContract.EntryTable.COL_INT_ENTRY_TIME, getEntryTime());
 
+        return cr.insert(
+                DbContract.EntryTable.CONTENT_URI,
+                values
+        );
     }
 
     /**
      * Deletes the item from the db
      *
+     * @return Number of rows deleted
      * @throws Exception
      */
-    public void delete() throws Exception {
+    public int delete(ContentResolver cr) {
+        if (getId() == -1) {
+            return -1;
+        }
 
+        return cr.delete(
+                DbContract.EntryTable.getUriForId(getId()),
+                null,
+                null
+        );
     }
 }
