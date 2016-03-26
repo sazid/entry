@@ -50,6 +50,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void bindListeners() {
+        if (mEntryEt.getText().length() == 0) {
+            mEntryBtn.setEnabled(false);
+        }
+
         mEntryEt.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {

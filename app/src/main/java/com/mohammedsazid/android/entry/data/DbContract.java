@@ -4,6 +4,7 @@ import android.content.ContentUris;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.provider.BaseColumns;
+import android.provider.Settings;
 
 public class DbContract {
     // The content authority is the name for the entire content provider
@@ -43,9 +44,32 @@ public class DbContract {
                         + ")"
                         + ";";
 
+        static String prepopulateMessage1 =
+                "Hello there!" +
+                "\nEntry is an app to let you continuously write stuffs into it. " +
+                        "You can store your daily life experiences, notes or use Entry as a " +
+                        "continuous journal so that you can record every single thing you " +
+                        "do everyday :) " +
+                        "Why not start writing something into the box below?" +
+                        "\nHave a great day!";
+
+        static String prepopulateMessage2 =
+                "Tap & hold this message!";
+
+        // SQL query for pre-populating the db
+        public static final String SQL_PREPOPULATE_1 =
+                "INSERT INTO " + TABLE_NAME + "(" + COL_TXT_ENTRY_TEXT + ", " + COL_INT_ENTRY_TIME + ")" +
+                        " VALUES('" + prepopulateMessage1 + "', " + System.currentTimeMillis() + ");";
+
+        public static final String SQL_PREPOPULATE_2 =
+                "INSERT INTO " + TABLE_NAME + "(" + COL_TXT_ENTRY_TEXT + ", " + COL_INT_ENTRY_TIME + ")" +
+                        " VALUES('" + prepopulateMessage2 + "', " + System.currentTimeMillis() + ");";
+
         // Creates the table
         public static void onCreate(SQLiteDatabase db) {
             db.execSQL(SQL_Q_CREATE_TABLE);
+            db.execSQL(SQL_PREPOPULATE_1);
+            db.execSQL(SQL_PREPOPULATE_2);
         }
 
         // Upgrades the table based on the given version number
