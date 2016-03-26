@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="16dp">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:padding="16dp"
+        android:text="New Text"
+        android:textColor="@color/textPrimary" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:text="26/3/2016"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/textSecondary" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/textView2"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:text="4:35p"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/textSecondary" />
+</RelativeLayout>

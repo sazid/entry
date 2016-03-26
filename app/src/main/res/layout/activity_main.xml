@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.mohammedsazid.android.entry.MainActivity">
+
+    <include
+        layout="@layout/entries_item_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/marginView" />
+
+    <View
+        android:id="@+id/marginView"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_above="@+id/editText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="#22000000" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/button"
+        android:layout_toStartOf="@+id/button"
+        android:background="@android:color/transparent"
+        android:inputType="textMultiLine|textAutoCorrect|textCapSentences"
+        android:maxLines="5"
+        android:padding="16dp" />
+
+    <ImageButton
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="4dp"
+        android:background="?android:selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_arrow_right" />
+</RelativeLayout>
