@@ -10,6 +10,7 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView mEntryRv;
     EditText mEntryEt;
     ImageButton mEntryBtn;
+    Toolbar mToolbar;
 
     EntryLoadTask mLoadTask;
 
@@ -41,12 +43,14 @@ public class MainActivity extends AppCompatActivity {
         bindListeners();
         initAdapter(null);
         loadData();
+        setSupportActionBar(mToolbar);
     }
 
     private void bindViews() {
         mEntryRv = (RecyclerView) findViewById(R.id.entryRecyclerView);
         mEntryEt = (EditText) findViewById(R.id.entryEditText);
         mEntryBtn = (ImageButton) findViewById(R.id.entryButton);
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
     }
 
     private void bindListeners() {
