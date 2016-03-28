@@ -1,7 +1,8 @@
-package com.mohammedsazid.android.entry;
+package com.mohammedsazid.android.entry.activities;
 
 import android.content.ContentResolver;
 import android.content.ContentUris;
+import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -19,6 +20,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
+import com.mohammedsazid.android.entry.Entry;
+import com.mohammedsazid.android.entry.R;
 import com.mohammedsazid.android.entry.adapters.EntryAdapter;
 import com.mohammedsazid.android.entry.data.DbContract;
 
@@ -97,6 +100,13 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_settings:
+                Intent intent = new Intent(this, SettingsActivity.class);
+                startActivity(intent);
+                return true;
+        }
+
         return super.onOptionsItemSelected(item);
     }
 
